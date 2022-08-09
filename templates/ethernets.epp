@@ -195,12 +195,25 @@
     <%- unless $accept_ra =~ Undef { -%>
       accept-ra: <%= $accept_ra %>
     <%- } -%>
+    
+
     <%- if $addresses { -%>
       addresses:
-      <%- $addresses.each |$address| { -%>
-        - <%= $address %>
+      <%- if $addresses[0] =~ Hash { -%>
+        <%- $addresses.each | $address, $label | { -%>
+            - <%= $address %>:
+                label: <%= $label['label'] %>
+        <%- } -%>
+      <%- } else { -%>
+          <%- $addresses.each |$address| { -%>
+            - <%= $address %>
+        <%- } -%>
       <%- } -%>
     <%- } -%>
+
+
+
+
     <%- if $gateway4 { -%>
       gateway4: <%= $gateway4 %>
     <%- } -%>
