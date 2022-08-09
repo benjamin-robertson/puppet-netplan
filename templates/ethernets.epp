@@ -199,13 +199,13 @@
 
     <%- if $addresses { -%>
       addresses:
-      <%- if $addresses[0] =~ Hash { -%>
-        <%- $addresses.each | $address, $label | { -%>
-            - <%= $address %>:
+      <%- $addresses.each | $address | { -%>
+        <%- if $address =~ Hash { -%>
+          <%- $address.each | $add, $label | { -%>
+            - <%= $add %>:
                 label: <%= $label['label'] %>
-        <%- } -%>
+          <%- } -%>
       <%- } else { -%>
-          <%- $addresses.each |$address| { -%>
             - <%= $address %>
         <%- } -%>
       <%- } -%>
