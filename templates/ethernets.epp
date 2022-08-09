@@ -195,8 +195,6 @@
     <%- unless $accept_ra =~ Undef { -%>
       accept-ra: <%= $accept_ra %>
     <%- } -%>
-    
-
     <%- if $addresses { -%>
       addresses:
       <%- $addresses.each | $address | { -%>
@@ -210,10 +208,6 @@
         <%- } -%>
       <%- } -%>
     <%- } -%>
-
-
-
-
     <%- if $gateway4 { -%>
       gateway4: <%= $gateway4 %>
     <%- } -%>
