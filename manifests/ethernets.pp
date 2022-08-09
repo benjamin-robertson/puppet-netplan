@@ -155,7 +155,7 @@ define netplan::ethernets (
     Optional['use_domains']     => Variant[Enum['route', 'true', 'false', 'yes', 'no'], Boolean],
   }]]                                                             $dhcp6_overrides = undef,
   Optional[Boolean]                                               $accept_ra = undef,
-  Optional[Variant[Array[Stdlib::IP::Address],Hash[String[1],Struct[{label => String[1]}]]]] $addresses = undef,
+  Optional[Variant[Array[Stdlib::IP::Address],Array[Hash[Stdlib::IP::Address,Struct[{label => String[1]}]]]]] $addresses = undef,
   Optional[Stdlib::IP::Address::V4::Nosubnet]                     $gateway4 = undef,
   Optional[Stdlib::IP::Address::V6::Nosubnet]                     $gateway6 = undef,
   Optional[Struct[{
